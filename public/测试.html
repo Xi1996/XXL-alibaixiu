@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function loadScript(url, callback) {
+            var script = document.createElement_x("script")
+            script.type = "text/javascript";
+            if (script.readyState) { //IE
+                script.onreadystatechange = function() {
+                    if (script.readyState == "loaded" || script.readyState == "complete") {
+                        script.onreadystatechange = null;
+                        callback();
+                    }
+                };
+            } else { //Others： Firefox, Safari, Chrome, and Opera
+                script.onload = function() {
+                    callback();
+                };
+            }
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+
+        for...in 循环中的代码每执行一次， 就会对数组的元素或者对象的属性进行一次操作。
+        for (变量 in 对象) {
+            在此执行代码
+        }
+    </script>
+</body>
+
+</html>
