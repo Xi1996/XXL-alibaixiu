@@ -6,7 +6,7 @@ $.ajax({
         $('tbody').html(html);
     }
 });
-
+// 创建新用户
 $('#userForm').on('submit', function() {
     var formData = $(this).serialize();
     $.ajax({
@@ -20,7 +20,8 @@ $('#userForm').on('submit', function() {
     return false;
 });
 
-$('#avatar').on('change', function() {
+// 头像预览
+$('#modifyBox').on('change', '#avatar', function() {
     var fd = new FormData();
     fd.append('avatar', this.files[0]);
     $.ajax({
@@ -36,6 +37,7 @@ $('#avatar').on('change', function() {
     });
 });
 
+// 修改按钮
 $('#tbody').on('click', '.modify', function() {
     $.ajax({
         type: "get",
@@ -46,7 +48,9 @@ $('#tbody').on('click', '.modify', function() {
         }
     });
 });
-$('#modifyBox').on('submit', 'modifyForm', function() {
+
+// 用户修改提交
+$('#modifyBox').on('submit', '#userForm', function() {
     var id = $(this).attr('data-id');
     $.ajax({
         type: "put",
@@ -54,10 +58,14 @@ $('#modifyBox').on('submit', 'modifyForm', function() {
         data: $(this).serialize(),
         success: function(res) {
             location.reload();
+        },
+        error: function(err) {
+            console.log(err);
         }
     });
 });
 
+// 删除用户按钮
 $('#tbody').on('click', '.delete', function() {
     if (confirm('您真的要删除用户吗？')) {
         var id = $(this).attr('data-id');
@@ -73,9 +81,11 @@ $('#tbody').on('click', '.delete', function() {
 
 var sellectAll = $('#sellectAll');
 
+// 全选框
 sellectAll.on('click', function() {
     var bool = sellectAll.prop('checked');
     $('.sellect').prop('checked', bool);
+    // 批量删除按钮显示与消失
     if (bool) {
         $('#deleteMany').show();
     } else {
@@ -83,8 +93,10 @@ sellectAll.on('click', function() {
     }
 });
 
+// 单选框
 $('#tbody').on('click', '.sellect', function() {
     var checkedList = $('#tbody input[type="checkbox"]:checked');
+    // 批量删除按钮显示和隐藏
     if (checkedList.length !== 0) {
         $('#deleteMany').show();
     } else {
@@ -107,6 +119,7 @@ $('#tbody').on('click', '.sellect', function() {
     }
 });
 
+// 批量删除按钮功能
 $('#deleteMany').on('click', function() {
     var checked = $('#tbody').find('input').filter(':checked');
     if (confirm('确定批量删除？'));

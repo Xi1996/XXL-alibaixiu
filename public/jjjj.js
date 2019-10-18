@@ -1,15 +1,19 @@
-var num = [1, 2, 3, 4, 5, 3, 2, 1, 4];
-var val = 3;
-
-
-var removeElement = function(nums, val) {
-    nums.forEach(function(i, ele) {
-        if (ele == val) {
-            num.splice(i, 1);
-            i--;
+function fun(n, o) {
+    console.log(o);
+    return {
+        fun: function(m) {
+            return fun(m, n);
         }
-    });
+    };
+}
 
-    return num.length;
-};
-removeElement(num, val);
+// var a = fun(0);
+// a.fun(1);
+// a.fun(2);
+// a.fun(3);
+
+var b = fun(0).fun(1).fun(2).fun(3);
+
+var c = fun(0).fun(1); // 0
+c.fun(2);
+c.fun(3);

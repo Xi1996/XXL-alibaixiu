@@ -162,7 +162,7 @@
         {{/each}}
     </script>
     <script type="text/html" id="modifyTpl">
-        <form id="modifyForm">
+        <form id="userForm" data-id="{{_id}}">
             <h2>添加新用户</h2>
             <div class="form-group">
                 <label>头像</label>
@@ -171,24 +171,15 @@
                     <input id="avatar" type="file">
                     {{if avatar}}
                     <img src="{{avatar}}" id="preview">
-                    {{else}}
-                    <i class="mask fa fa-upload"></i>
                     {{/if}}
-                    <input type="hidden" name="avatar" id="hiddenImg">
+                    <input type="hidden" name="avatar" id="hiddenAvatar" value="{{avatar}}">
+                    <i class="mask fa fa-upload"></i>
                 </label>
                 </div>
             </div>
             <div class="form-group">
-                <label>邮箱</label>
-                <input name="email" value="{{email}}" class="form-control" type="email" placeholder="请输入邮箱">
-            </div>
-            <div class="form-group">
                 <label>昵称</label>
                 <input name="nickName" value="{{nickName}}" class="form-control" type="text" placeholder="请输入昵称">
-            </div>
-            <div class="form-group">
-                <label>密码</label>
-                <input name="password" value="" class="form-control" type="password" placeholder="请输入密码">
             </div>
             <div class="form-group">
                 <div class="radio-inline">
