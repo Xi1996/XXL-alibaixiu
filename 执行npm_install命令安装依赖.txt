@@ -1,0 +1,1 @@
+https://auth.gientech.com/login?service=https%3A%2F%2Fapi.huilianyi.com%2Fsso%2Fcallback%3Fclient_name%3Dpactera-fintech%26redirect_url%3Dhttps%253A%252F%252Fgientech.huilianyi.com%252F
